@@ -9,92 +9,13 @@
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 
-\title{Probability and Measure}
+\title{Principles of Quantum Mechanics}
 \author{George Lee\\Girton College}
 \begin{document}
 
 \maketitle
-\section{Measures}
-
-\subsection{Definitions}
-Let $E$ be a set.  A $\sigma$-$algebra$ $\mathcal{E}$ on $E$ is a collection of subsets of $E$ s.t.
-
-\begin{align*}
-  \forall n \in \mathbb{N}~A_n \in \mathcal{E} \implies\bigcup_\mathbb{N}A_n \in \mathcal{E},
-  \\
-  A\in\mathcal{E}\implies A^c \in \mathcal{E}
-\end{align*}
-
-Pair $(E,\mathcal{E})$ a measurable space, $\mathcal{E}$ the collection of measurable sets.
-\\
-$\mu:(E,\mathcal{E})\rightarrow[0,\infty]$ called a measure if for all disjoint $\{A_n\}_\mathbb{N}\subset\mathcal{E}$ we have that
-
-$$
-  \mu(\bigcup_\mathbb{N}A_n)=\sum_\mathbb{N}\mu(A_n).
-$$
-
-ie, countable additivity.  $(E,\mathcal{E},\mu)$ a measure space.
-
-\subsection{Discrete measure theory}
-Given $f:E\rightarrow[0,\infty]$ can do measure theory on measurable space $(E,2^E)$ via $\mu(A)=\sum_Af(a)$.
-
-\subsection{Generated $\sigma$ - algebras}
-Let $\mathcal{A}\subset2^E$.  Define
-$$
-  \sigma(\mathcal{A})=\bigcap\{\sigma\-~ algebras\supseteq\mathcal{A}\}
-$$
-Then (easy to check) $\sigma(\mathcal{A})$ a $\sigma$-algebra.
-
-\subsection{$\pi$-systems and $d$-systems}
-Let $\emptyset\in\mathcal{A}\subseteq2^E$. Have $\mathcal{A}$ a $\pi$-system if $A,B\in\mathcal{A}\implies A\cup B\in\mathcal{A}$.  We say that $E\in\mathcal{A}\subseteq2^E$ is a $d$-system if
-\begin{align*}
-  A,B\in\mathcal{A},A\subseteq B \implies B\backslash A \in \mathcal{A},
-  \\
-  (A_n)_\mathbb{N}\in\mathcal{A}^\mathbb{N},A_1\subseteq A_2\subseteq ... \implies \bigcup_\mathbb{N}A_n \in \mathcal{A}
-\end{align*}
-Note then that $\mathcal{A}$ both of these $\implies A$ a $\sigma$-algebra.
-\begin{lemma}
-  Dynkin's $\pi$ system lemma: Let $\mathcal{A}$ ba a $\pi$-system.  Then any $d$-system containing $\mathcal{A}$ also contains $\sigma(\mathcal{A})$.
-\end{lemma}
-\begin{proof}
-  Let $\mathcal{D}=\bigcap\{d\text{-}systems\supseteq\mathcal{A}\}$.  Then $\mathcal{D}$ a $d$-system.  We show $\mathcal{D}$ also a $\pi$ system and thus a $\sigma$-algebra as required.  Consider
-  $$
-    \mathcal{D}'=\{B\in\mathcal{D} : \forall A \in \mathcal{A} : B\cap A\in\mathcal{D}\}\subseteq \mathcal{D}
-  $$
-  Then $\mathcal{D}\subseteq\mathcal{D}'$ ($\mathcal{A}$ a $d$-system).  Check $\mathcal{D}'$ a $d$-system: have $E\in\mathcal{D}'$, and let $B,C\in\mathcal{D}',~B\subseteq C$, then given $A\in\mathcal{A}$ we have
-  \begin{align*}
-    (C\backslash B)\cap A = (C\cap A)\backslash (B\cap A)\in\mathcal{D}
-    \implies C\backslash B \in \mathcal{D}'
-  \end{align*}
-  Write $B_n \uparrow B$ if $B_1\subseteq B_2\subseteq...$ and $B=\bigcup_\mathbb{N}B_n$.  Let $(B_n)_\mathbb{N}\in\left.\mathcal{D}'\right.^\mathbb{N}$ be increasing, then $B_n\cap A \uparrow B\cap A$.  Thus $B\cap A \in \mathcal{D}\implies B\in\mathcal{D}'\implies B\in \mathcal{D}'\implies \mathcal{D}=\mathcal{D}'$.  Then let
-  $$
-    \mathcal{D}''=\{B\in\mathcal{D}:\forall A\in\mathcal{A}: B\cap A\in\mathcal{D}\}\subseteq \mathcal{D}
-  $$
-  $A,A'\in\mathcal{A}\implies A\cup A'\in \mathcal{D}$ and thus $\mathcal{A}\subseteq\mathcal{D}''$.  Check $\mathcal{D}''$ a $d$-system, like with $\mathcal{D}'$.  Then $\mathcal{D}''=\mathcal{D}\implies\mathcal{D}$ a $\pi$-system.
-\end{proof}
-
-\subsection{Set functions and properties}
-Let $\emptyset\in\mathcal{A}\subseteq2^E$.  We call any $\mu:\mathcal{A}\rightarrow[0,\infty]$ with $\mu(\emptyset)=0$ a set function.  Let $\mu$ be such a function.
-\begin{itemize}
-  \item $(A,B\in\mathcal{A},A\subseteq B \implies \mu(A)\leq\mu(B))\implies \mu~increasing$.
-  \item $(A,B,A\dot{\cup} B \in \mathcal{A}\implies \mu(A\cup B)=\mu(A)+\mu(B))\implies~\mu~additive$.
-  \item $(A_1,A_2,...,\dot{\bigcup}_\mathbb{N} A_n \in \mathcal{A}\implies \mu(\bigcup_\mathbb{N}A_n)=\sum_\mathbb{N}\mu(A_n))\implies~\mu~countably~additive$.
-\end{itemize}
-
-\subsection{Construction of measures}
-Let $\mathcal{A}\subseteq2^E$.  Say $\mathcal{A}$ a $ring~on~E$ if
-\begin{itemize}
-  \item $\emptyset\in\mathcal{A}$
-  \item $A,B\in\mathcal{A}\implies B\backslash A,A\cup B\in\mathcal{A}$
-\end{itemize}
-Say $\mathcal{A}$ an $algebra~on~E$ if
-\begin{itemize}
-  \item $\emptyset\in\mathcal{A}$
-  \item $A,B\in\mathcal{A}\implies A^c,A\cup B\in\mathcal{A}$
-\end{itemize}
-\begin{theorem}
-  Caratheodory's extention theorem: Let $\mathcal{A}$ a ring on $E$ and $\mu$ a countably additive set function on $\mathcal{A}$.  Then can extend $\mu$ uniquely to a measure on $\sigma(\mathcal{A})$.
-\end{theorem}
-\begin{proof}
-\end{proof}
+\section{Introduction}
+\subsection{blah}
+sergserhiugyhieru
+\section{Dirac formalism}
 \end{document}
