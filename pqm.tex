@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{braket}
 
 \usepackage{graphicx}
 
@@ -15,7 +16,15 @@
 
 \maketitle
 \section{Introduction}
-\subsection{blah}
+\subsection{Blah}
 sergserhiugyhieru
-\section{Dirac formalism}
+\section{Dirac Formalism}
+State of a quantum system described by a ket member $\ket{\psi}$ of a $\mathbb{C}$-Hilbert space $\mathcal{H}$.  We have the corresponding dual space of bra vectors $\bra{\phi}\in\mathcal{H}^\dagger$.  The space is suffieciently well behaved that for each member $\ket{\psi}$ of the space there is a corresponding dual vector $\bra{\psi}=(\ket{\psi})^*$.  Have sesquilinear inner product $\braket{\sim|\sim}:\mathcal{H}^2\rightarrow\mathbb{C}$ etc.
+\\
+\\
+Physically $\ket{\psi}\mapsto\alpha\ket{\psi}$ transforms the ket to an equivalent state.  For a particle we often choose $\braket{\psi|\psi}=1$, note that we often study systems whioch are idealisations, eg infinite plane waves where $\braket{\psi|\psi}=\infty$.  Even then given $\theta\in\mathbb{R}$ the map $\ket{\psi}\mapsto e^{i\theta}\ket{psi}$ gives equivalent systems, though we find phase differences do matter.
+\\
+\\
+What with this being a vector space we have linear operators on it.  Given $Q:\mathcal{H}\circlearrowright$ linear we can define $Q^\dagger:\mathcal{H}^\dagger\circlearrowright,~Q^\dagger:\bra{\psi}\mapsto(Q\ket{\psi})^\dagger$
+
 \end{document}
