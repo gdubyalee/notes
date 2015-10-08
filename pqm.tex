@@ -20,7 +20,7 @@
 sergserhiugyhieru
 \section{Dirac Formalism}
 \subsection{States and Operators}
-State of a quantum system described by a ket member $\ket{\psi}$ of a $\mathbb{C}$-Hilbert space $\mathcal{H}$.  We have the corresponding dual space of bra vectors $\bra{\phi}\in\mathcal{H}^\dagger$.  The space is suffieciently well behaved that for each member $\ket{\psi}$ of the space there is a corresponding dual vector $\bra{\psi}=(\ket{\psi})^*$.  Have sesquilinear inner product $\braket{\sim|\sim}:\mathcal{H}^2\rightarrow\mathbb{C}$ etc.
+State of a quantum system described by a ket member $\ket{\psi}$ of a $\mathbb{C}$-Hilbert space $\mathcal{H}$.  We have the corresponding dual space of bra vectors $\bra{\phi}\in\mathcal{H}^\dagger$.  In terms of notation, $\phi$ is merely a label - in other cases we may label ket vectors by a number or collection of numbers.  The space is suffieciently well behaved that for each member $\ket{\psi}$ of the space there is a corresponding dual vector $\bra{\psi}=(\ket{\psi})^*$.  Have sesquilinear inner product $\braket{\sim|\sim}:\mathcal{H}^2\rightarrow\mathbb{C}$ etc.
 \\
 \\
 Physically $\ket{\psi}\mapsto\alpha\ket{\psi}$ transforms the ket to an equivalent state.  For a particle we often choose $\braket{\psi|\psi}=1$, note that we often study systems whioch are idealisations, eg infinite plane waves where $\braket{\psi|\psi}=\infty$.  Even then given $\theta\in\mathbb{R}$ the map $\ket{\psi}\mapsto e^{i\theta}\ket{psi}$ gives equivalent systems, though we find phase differences do matter.
@@ -53,7 +53,67 @@ Here $\alpha_X=\braket{X|\psi}$.
 \\
 Physically $Q$ may correspond to a physical quantity, eg when $Q=\hat{\mathcal{H}}$, the Hamiltonian.  When a measurement of the quantity is made we find that $\mathbb{P}(\lambda=\lambda')=\sum_{n=1}^{dim(\mathbb{V}_\lambda')}\braket{n,\lambda'|\psi}^2$.  Upon measurement of value $\lambda$ the wavefunction's non-$\lambda$-eigenvalue components will vanish, and the other components may be renormalised as appropriate.  Thus the expected value of $\lambda$ is
 $$
-  \mathbb{E}(Q)=\braket{\psi|Q|\psi}=\sum_\lambda\mathbb{P}(\lambda)=\sum_\lambda\sum_{n=a}^{dim(\lambda)}\lambda\alpha_{n,\lambda}
+  \mathbb{E}_\psi(Q)=\braket{Q}_\psi=\braket{\psi|Q|\psi}=\sum_\lambda\lambda\mathbb{P}(\lambda)=\sum_\lambda\sum_{n=1}^{dim(\lambda)}\lambda|\alpha_{n,\lambda}|^2
 $$
+The uncertainty is given by
+$$
+  (\Delta Q)_\psi^2=\braket{(Q-\braket{Q}_\psi)^2}_\psi=\braket{Q^2}_\psi-\braket{Q}_\psi^2
+$$
+so that if $Q\ket{\psi}=\lambda\ket{\psi}$ then $\braket{Q}_\psi=\lambda,~(\Delta Q)_\psi=0$.  We can then derive an uncertainty principle, relating the uncertainties of physical quanbtities with their commutators:
+\begin{align*}
+  \braket{[A,B]}^2&=\braket{[A-\braket{A},B-\braket{B}]}^2
+  \\
+  &=\braket{(A-\braket{A})(B-\braket{B})-(B-\braket{B})(A-\braket{A})}^2
+  \\
+  &\leq(|\braket{(A-\braket{A})(B-\braket{B})}|+|\braket{(B-\braket{B})(A-\braket{A})}|)^2
+  \\
+  &\leq(2(\Delta A)(\Delta B))^2
+  \\
+  \implies& \frac{1}{2}|\braket{[A,B]}|\leq(\Delta A)(\Delta B)
+\end{align*}
+where we have used $\braket{AB}\leq\braket{A}\braket{B}$ and also $a,b\in\mathbb{C}\implies[A-a,B-b]=[A,B]$.  A significant example of this is the Heisenburg uncertainty principle: given $[\hat{x},\hat{p}]=i\hbar$ it follows that $\frac{1}{2}\hbar\leq\Delta\hat{x}\Delta\hat{p}$.
+\subsection{Time evolution of the Schr\"odinger Equation}
+We should hope that a wavefunction should be governed by some appropriate equation.  In particular the assumption often made is that the instantaneous manner in which the system is changing should be describable by some differential equation.  In QM the equation is taken to be
+$$
+  i\hbar\partial_t\ket{\psi(t)}=\hat{\mathcal{H}}\ket{\psi(t)}
+$$
+for some linear operator $\hat{\mathcal H}$ so that
+$$
+  -i\hbar\bra{\psi(t)}=\bra{\psi(t)}\hat{\mathcal{H}^\dagger}
+$$
+Now given the interpretation of the wavefunction in terms of probability density, we require $1=\braket{\psi|\psi}$ for all time, so that $\forall\ket{\psi(t_0)}$ we find
+\begin{align*}
+  0&=\partial_t\braket{\psi|\psi}
+  \\
+  &=\bra{\psi}(\partial_t\ket{\psi})+(\partial_t\bra{\psi})\ket{\psi}
+  \\
+  &=\frac{1}{i\hbar}\braket{\psi|(\hat{\mathcal{H}}-\hat{\mathcal{H}}^\dagger)|\psi}
+\end{align*}
+so that $\hat{\mathcal{H}}=\hat{\mathcal{H}}^\dagger$ Hermitian.  $\hat{\mathcal{H}}$ corresponds to the classical notion of energy.  Consider the case where it has a discrete set of eigenvalues $\hat{\mathcal{H}}\ket{n}=E_n\ket{n}$.  Subbing in $\ket{\psi(0)}=\ket{n}$ and writing $\ket\psi=\hat f(t)\ket n$ we find, for $[\hat{\mathcal{H}},t]=0$,
+$$
+  \hat{\mathcal H}\ket\psi=\hat{\mathcal H}\hat f\ket n=\hat f\hat{\mathcal H}\ket n=\hat fE_n\ket n=E_n\ket\psi,
+$$
+that is, the state remains stationary - thus $\hat f(t)=e^{i\theta(t)}$ for some $\theta$.  Then we have
+$$
+  i\hbar\partial_te^{i\theta(t)}\ket n=E_ne^{i\theta(t)}\ket n\implies \ket{\psi(t)}=e^{-\frac{iE_nt}{\hbar}}\ket n
+$$
+Thus given a general initial state $\ket{\psi(0)}=\sum_n\alpha_n\ket n$ and using linearity of the equation we can write down the solution
+$$
+  \ket{\psi(t)}=\sum_ne^{-\frac{iE_nt}{\hbar}}\alpha_n\ket n
+$$
+\subsection{Bases and Representations}
+Given an orthonormal (ON) representation of states, eg
+\begin{align*}
+  \ket\psi=\sum_n\alpha_n\ket n
+  \\
+  \ket\phi=\sum_n\beta_n\ket n
+\end{align*}
+we find that the inner product is given by $\braket{\phi|\psi}=\sum_n\bar\beta_n\alpha_n$.  If we are given an operator $A$, and we write $A_{mn}=\braket{m|A|n}$ then we have
+\begin{align*}
+  \ket \phi&=A\ket\psi~(Basis-independent~abstraction)
+  \\
+  \forall m :\beta_m&=\sum_nA_{mn}\alpha_n~(Basis-dependent)
+\end{align*}
+Writing $Id=\sum_n\ket n\bra n$ we find $A=Id\circ A\circ Id=\sum_{m,n}\ket mA_{mn}\bra{n}$.  If $Q\ket n =q_n \ket n$ then we have $Q=\sum_n \ket n q_n \bra n$.  In some circumstances it is then appropriate to extend a $\mathbb C $-valued function $f$ to $Q$ via $f(Q)=\sum_n \ket n f(q_n) \bra n$
 
 \end{document}
