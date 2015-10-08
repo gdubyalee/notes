@@ -19,12 +19,41 @@
 \subsection{Blah}
 sergserhiugyhieru
 \section{Dirac Formalism}
+\subsection{States and Operators}
 State of a quantum system described by a ket member $\ket{\psi}$ of a $\mathbb{C}$-Hilbert space $\mathcal{H}$.  We have the corresponding dual space of bra vectors $\bra{\phi}\in\mathcal{H}^\dagger$.  The space is suffieciently well behaved that for each member $\ket{\psi}$ of the space there is a corresponding dual vector $\bra{\psi}=(\ket{\psi})^*$.  Have sesquilinear inner product $\braket{\sim|\sim}:\mathcal{H}^2\rightarrow\mathbb{C}$ etc.
 \\
 \\
 Physically $\ket{\psi}\mapsto\alpha\ket{\psi}$ transforms the ket to an equivalent state.  For a particle we often choose $\braket{\psi|\psi}=1$, note that we often study systems whioch are idealisations, eg infinite plane waves where $\braket{\psi|\psi}=\infty$.  Even then given $\theta\in\mathbb{R}$ the map $\ket{\psi}\mapsto e^{i\theta}\ket{psi}$ gives equivalent systems, though we find phase differences do matter.
 \\
 \\
-What with this being a vector space we have linear operators on it.  Given $Q:\mathcal{H}\circlearrowright$ linear we can define $Q^\dagger:\mathcal{H}^\dagger\circlearrowright,~Q^\dagger:\bra{\psi}\mapsto(Q\ket{\psi})^\dagger$
+What with this being a vector space we have linear operators on it.  Given $Q:\mathcal{H}\rightarrow\mathcal{H}$ linear we can define $Q^\dagger:\mathcal{H}^\dagger\rightarrow\mathcal{H}^\dagger$ by $Q^\dagger:\bra{\psi}\mapsto(Q\ket{\psi})^\dagger$.
+\\
+\\
+Eigenstates of $Q$ with eigenvalue $\lambda$ of course satisfy the equation $Q\ket{\psi}=\lambda\ket{\psi}$.  Oh, also $[A,B]=AB-BA$ is the commutator.  Neat identities are associated with it.
+\subsection{Observables and measurements}
+Operator $Q$ Adjoint/Hermitian if we have $Q^\dagger=Q$ (THIS DOES NOT MAKE SENSE UNLESS WE'RE LIKE, LOL, Say two maps are the same if for all $\ket{\psi}\ket{\phi}$ we have $\braket{\phi |Q|\psi}=\braket{\phi|Q'|\psi}$).  Can show for $Q$ Hermitian:
+\begin{itemize}
+  \item $Q\ket{\psi}=\lambda\ket{\psi}\implies\lambda\in\mathbb{R}$
+  \item $\lambda \neq \lambda',Q\ket{\psi}=\lambda\ket{\psi},Q\ket{\phi}=\lambda'\ket{\phi}\implies \braket{\psi|\phi}=0$
+  \item Writing $\mathbb{V}_\lambda$ for the eigenstates of value $\lambda$, we have $\Bar{span}({\mathbb{V}_\lambda:\lambda\in\mathbb{R}})=\mathcal{H}$
+\end{itemize}
+Maybe I'll write out a bit of a rambling proof later.  Or maybe just check out linear ananlysis or something?
+\\
+\\
+Diagonalising $Q$ is a matter of rewriting the states we care about in terms of $Q$'s eigenstates.  For q $Q$ with a discrete spectrum of eigenvalues with $\forall\lambda: dim(\mathbb{V}_\lambda)$ we can write
+$$
+  \ket{\psi}=\sum_\lambda\sum_{n=1}^{dim(\mathbb{V}_\lambda)}\ket{n,\lambda}\braket{n,\lambda|\psi}=\sum_\lambda\sum_{n=1}^{dim(\mathbb{V}_\lambda)}\alpha_{n,\lambda}\ket{n,\lambda}
+$$
+ie,  we have  that the identity operator $Id=\sum_\lambda\sum_{n=1}^{dim(\mathbb{V}_\lambda)}\ket{n,\lambda}\bra{n,\lambda}$.  This simplifies, for a nondegenerate spetrum, ie, when $\forall\lambda:dim(\mathbb{V}_\lambda)=1$ to
+$$
+  \ket{\psi}=\sum_\lambda\ket{n,\lambda}\braket{\lambda|\psi}=\sum_\lambda\alpha_{\lambda}\ket{\lambda}
+$$
+Here $\alpha_X=\braket{X|\psi}$.
+\\
+\\
+Physically $Q$ may correspond to a physical quantity, eg when $Q=\hat{\mathcal{H}}$, the Hamiltonian.  When a measurement of the quantity is made we find that $\mathbb{P}(\lambda=\lambda')=\sum_{n=1}^{dim(\mathbb{V}_\lambda')}\braket{n,\lambda'|\psi}^2$.  Upon measurement of value $\lambda$ the wavefunction's non-$\lambda$-eigenvalue components will vanish, and the other components may be renormalised as appropriate.  Thus the expected value of $\lambda$ is
+$$
+  \mathbb{E}(Q)=\braket{\psi|Q|\psi}=\sum_\lambda\mathbb{P}(\lambda)=\sum_\lambda\sum_{n=a}^{dim(\lambda)}\lambda\alpha_{n,\lambda}
+$$
 
 \end{document}
