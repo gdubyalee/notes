@@ -102,7 +102,7 @@ $$
   \ket{\psi(t)}=\sum_ne^{-\frac{iE_nt}{\hbar}}\alpha_n\ket n
 $$
 \subsection{Bases and Representations}
-Given an orthonormal (ON) representation of states, eg
+Given an orthonormal ($ON$) representation of states, eg
 \begin{align*}
   \ket\psi=\sum_n\alpha_n\ket n
   \\
@@ -114,6 +114,17 @@ we find that the inner product is given by $\braket{\phi|\psi}=\sum_n\bar\beta_n
   \\
   \forall m :\beta_m&=\sum_nA_{mn}\alpha_n~(Basis-dependent)
 \end{align*}
-Writing $Id=\sum_n\ket n\bra n$ we find $A=Id\circ A\circ Id=\sum_{m,n}\ket mA_{mn}\bra{n}$.  If $Q\ket n =q_n \ket n$ then we have $Q=\sum_n \ket n q_n \bra n$.  In some circumstances it is then appropriate to extend a $\mathbb C $-valued function $f$ to $Q$ via $f(Q)=\sum_n \ket n f(q_n) \bra n$.  Note then eg, for $f(x)=\frac{1}{x}$ we have $Q\circf(Q)=\sum_m,n\ket m \frac{q_m}{q_n}\braket{m|n}\bra n$
+Writing $Id=\sum_n\ket n\bra n$ we find $A=Id\circ A\circ Id=\sum_{m,n}\ket mA_{mn}\bra{n}$.  If $Q\ket n =q_n \ket n$ then we have $Q=\sum_n \ket n q_n \bra n$.  In some circumstances it is then appropriate to extend a $\mathbb C $-valued function $f$ to $Q$ via $f(Q)=\sum_n \ket n f(q_n) \bra n$.  Note then eg, for $f(x)=\frac{1}{x}$ we have $Q\circ f(Q)=\sum_{m,n}\ket m \frac{q_m}{q_n}\braket{m|n}\bra n=Id$
+\\
+\\
+Note that a load of these arguments carry over into continuous spectra etc... aergtsertygtdhbrydjfyhbdyhcn
+\subsection{Position and momentum basis - wavefunctions}
+Have $[\hat x,\hat p]=i\hbar$ and say $\hat x\ket x=x\ket x$,  Cts spectrum in this case, so have
+\begin{align*}
+  \braket{x|x'}=\delta_{x-x'},
+  \\
+  Id=\int_\mathbb{R}dx\ket x \bra x
+\end{align*}
+similar for $\hat p$.  May represent a system in terms of either of these representations.  Often write $\psi(x)=\braket{x|\psi}$.
 
 \end{document}

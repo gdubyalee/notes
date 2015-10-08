@@ -92,8 +92,45 @@ Say $\mathcal{A}$ an $algebra~on~E$ if
   \item $A,B\in\mathcal{A}\implies A^c,A\cup B\in\mathcal{A}$
 \end{itemize}
 \begin{theorem}
-  Caratheodory's extention theorem: Let $\mathcal{A}$ a ring on $E$ and $\mu$ a countably additive set function on $\mathcal{A}$.  Then can extend $\mu$ uniquely to a measure on $\sigma(\mathcal{A})$.
+  Carath\'eodory's extention theorem: Let $\mathcal{A}$ a ring on $E$ and $\mu$ a countably additive set function on $\mathcal{A}$.  Then can extend $\mu$ to a measure on $\sigma(\mathcal{A})$.
 \end{theorem}
 \begin{proof}
+  Will write up later
 \end{proof}
+\subsection{Unhiqueness of measures}
+\begin{theorem}
+  Uniqueness of extention:srlgxdfkghdfg
+\end{theorem}
+\begin{proof}
+  shtghfghcfgh
+\end{proof}
+\subsection{Borel sets and measures}
+Let $(E,\tau)$ a topological space.  Then the Borel $\sigma$-algebra on $E$ is defined by $\mathcal{B}(E)=\sigma(\tau)$.  For $E=\mathbb R$ we may write $\mathcal B(E)=\mathcal{B}$.  A corresponding measure on such a space is called a Borel measure.  If further all compact sets have a finite measure we say it is a Radon measure.
+\subsection{Probability measures, finite and $\sigma$-finite measures.}
+For $(E,\mathcal E,\mu)$ a measure space, we say $\mu$ is a probability measure if $\mu(E)=1$, and tend to write instead $(\Omega,\mathcal{F},\mathbb{P})$.  $\mu(E)<\infty\implies\mu$ a finite measure, and finally if there is a countable collection of measurable sets of finite measure which cover $E$ then we say the space is $\sigma$-finite.
+\subsection{Lebesgue measure}
+\subsection{Existence of a non-Lebesgue-measurable subset of $\mathbb{R}$}
+\subsection{Independence}
+\subsection{Borel-Cantelli lemmas}
+\section{Measurable functions and Random Variables}
+\subsection{Measurable functions}
+Let $(E,\mathcal E),(F,\mathcal F)$ be measurable spaces.  We say $f:E\rightarrow F$ is measurable if $U\in\mathcal F \implies f^{-1}U\in \mathcal E$.
+\begin{itemize}
+  \item $(G,\mathcal G)=(\mathbb R,\mathcal B)\implies f$ is a measurable function on $E$
+  \item $(G,\mathcal G)=([0,\infty],\mathcal B([0,\infty]))\implies f$ is a non-negative measurable function on $E$
+\end{itemize}
+note neither definitions are more strict than the other.  Now seeing as inverse images preserve union and complementation, to show that a function is measurable it is sufficient to show that the inverse images of a collection of sets generating the $\sigma$-algebra are measurable.  For example in the case where $f$ is a measurable function on $E$ it suffices to show that the collection $\{f^{-1}(-\infty,x]:x\in\mathbb R\}=\{\{f(\omega)\leq x\}:x\in\mathbb R\}\subseteq\mathcal F$.  Note that if the measures are borel and the function is continuous it immediately follows it is measurable.
+\\
+\\
+rtdhcyfujnyfgjhcvn
+\\
+\\
+\begin{theorem}
+  Monotone Class theorem: Let $(E,\mathcal E)$ be a measurable space and let $\mathcal A$ ba a $\pi$-system with $\sigma(\mathcal A)=\mathcal E$.  Let $\mathbb V$ be an $\mathbb{R}$-vector space of bounded $f:E\rightarrow\mathbb{R}$ such that the following hold:
+  \begin{itemize}
+    \item $x\mapsto1\in\mathbb V$
+    \item $(f_n)_\mathbb{N}\in\mathbb V^\mathbb{N}$ with $0\leq f_n \uparrow f\implies f\in\mathbb V$
+  \end{itemize}
+  then ${bounded~measurable~functions}\subseteq\mathbb V$
+\end{theorem}
 \end{document}
