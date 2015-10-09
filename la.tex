@@ -5,10 +5,10 @@
 
 \usepackage{graphicx}
 
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{definition}
+\newtheorem{lemma}{Lemma}[subsection]
+\newtheorem{definition}{Definition}[subsection]
 
 \title{Linear Analysis}
 \author{George Lee\\Girton College}
@@ -27,7 +27,7 @@ Vector things
     \item $\forall v,w\in\mathbb V:\|v+w\|\leq\|v\|+\|w\|$
   \end{enumerate}
 \end{definition}
-\section{The relation with the topology}
+\subsection{The relation with the topology}
 Clear that $\|-\|$ defines a metric via taking the norm of the difference between vectors, and hence a notion of topology.  Thus can use Met+Top etc a load in this course.  Might use $\tau_\mathbb{V}$ to denote the collection of open sets.
 \begin{lemma}
   Let $(\mathbb V,|-|)$ be a normed vector space.  Then the operations of addition and scalar multiplication are continuous.
@@ -36,10 +36,64 @@ Clear that $\|-\|$ defines a metric via taking the norm of the difference betwee
   For $+$: let $U\in\tau_\mathbb V$, want $+^{-1}U\in\mathbb V^2$.  Let $(v_1,v_2)\in +^{-1}U$, ie, $v_1+v_2\in U$.  For some $0\leq\epsilon$ we have $v_1+v_2+\mathcal B(\epsilon)=v_1+\mathcal B(\frac{\epsilon}{2})+v_2+\mathcal B(\frac{\epsilon}{2})\subseteq U$.  This is exactly the image of $(v_1+\mathcal B(\frac{\epsilon}{2}),v_1+\mathcal B(\frac{\epsilon}{2}))\in\tau_{\mathbb V^2}$ under $+$.
 \end{proof}
 \begin{corollary}
-  Let $\mathbb V$ be a normed vector space. transplations and dilations are homeomorphisms.
+  Let $\mathbb V$ be a normed vector space. translations and dilations are homeomorphisms.
 \end{corollary}
+\begin{proof}
+  Note translations are continuous considered as the restriction of $+$ to $\mathbb V \times \{v_0\}$ for some $v_0$, then their inverses are also translations so translations have continuous inverses and are continuous, and bijective, so homeomorphisms.  Similarly, dilations are the restriction of scalar multiplication to just one nonzero scalar value.
+\end{proof}
 \subsection{More abstraction: topological vector spaces}
 \begin{definition}
   A topological vector space is a vector space $\mathbb V$ together with a topology such that addition and scalar multiplication are continuous, and each singleton set is closed.
 \end{definition}
+\subsection{Norms and convexity}
+Main abstract object of the course is the topological vector space.  Normed spaces are simply a special case of this type of object.
+\begin{definition}
+  Let $\mathbb V$ a vector space, $C\subseteq\mathbb V$.  Say $C$ convex if $\forall t\in[0,1]:tC+(1-t)C\subseteq C$
+\end{definition}
+\begin{lemma}
+  Let $\mathbb V$ a normed vector space. Then $\mathcal B(1)$ is convex.
+\end{lemma}
+\begin{proof}
+  Let $v_1,v_2\in\mathcal B(1),t\in[0,1]$.  Then have $\|tv_1+(1-t)v_2\|\leq t\|v_1\|+(1-t)\|v_2\|\leq t+(1-t)=1\implies tv_1+(1-t)v_2\in\mathcal B(1)$.
+\end{proof}
+Note convexity is translation invariant.
+\begin{definition}
+  We say a topological vector space is locally convex if it has a basis of convex sets.
+\end{definition}
+Note that a sufficient condition for a topological vector space to be locally convex is for each neighbourhood of $0$ to in turn contain a convex open neighbourhood of $0$.  Again, note that convexity of $\mathcal B(1)\implies$($\mathbb V$ a normed space $\implies\mathbb V$ a locally convex topological vector space).
+\begin{definition}
+  Let $\mathbb V$ be a tolopogical vector space.  Say $B\subseteq\mathbb V$ bounded if given an open neighbourhood $U$ of $0$, we have that $\exists s>0:t>s\implies B\subseteq tU$
+\end{definition}
+\begin{lemma}
+  Let $\mathbb V$ be a topological vector space and $C$ a bounded convex neighbourhood of $0$.  Then there exists an (origin-)balanced bounded convex $C'\supseteq C$
+\end{lemma}
+\begin{proof}
+  Let $C'=\{\pm v:v\in C\}=C\cup-C$, and let $U$ be an arbitrary open neighbourhood of the origin.  Let $U'=\{v\in U:-v\in U\}=U\cap-U$.  Then $U'$ is open as a finite intersection of open  sets, containing 0, so $\exists t>0:C\subseteq tU'$, but then
+\end{proof}
+\begin{lemma}
+  Let $\mathbb V$ be a topological vector space, and $0\in C\subseteq\mathbb V$ bounded and convex neighbrourhood.  Then we can define a norm on $\mathbb V$ which induces the same topology, ie, $\mathbb V$ is normable.
+\end{lemma}
+\begin{proof}
+  Taking $C'$ as above, we may define $\mu_{C'}:\mathbb V \rightarrow \mathbb R$ to be the Minkowski functional of $C'$: $\mu_{C'}(v)=\text{inf}\{t>0:v\in tC'\}$.  Then it is easy to see this defines a norm.
+\end{proof}
+\begin{definition}
+  Say $\mathbb V$ locally bounded if $\exists$a bounded open neighbourhood of $0$.
+\end{definition}
+\subsection{Banach spaces}
+\begin{definition}
+  A Banach space is a complete normed vector space.
+\end{definition}
+\subsection{Examples}
+ajwgfefgiaweaufgzsyafgewyfgriyfvyfjhfgjffftgf
+\subsection{Bounded linear maps}
+\begin{definition}
+  Let $\mathbb V,\mathbb W$ be topological vector spaces.  A linear map $T:\mathbb V\rightarrow\mathbb W$ is said to be bounded if it maps bounded sets to bounded sets.
+\end{definition}
+\begin{lemma}
+  Let $\mathbb V,\mathbb W$ be locally bounded topological vector spaces and $T:\mathbb V\rightarrow\mathbb W$ linear.  Then $T$ is bounded exactly when it is continuous.
+\end{lemma}
+\begin{proof}
+  Do this from the other notes later...
+\end{proof}
+
 \end{document}
