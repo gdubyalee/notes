@@ -23,7 +23,7 @@ sergserhiugyhieru
 State of a quantum system described by a ket member $\ket{\psi}$ of a $\mathbb{C}$-Hilbert space $\mathcal{H}$.  We have the corresponding dual space of bra vectors $\bra{\phi}\in\mathcal{H}^\dagger$.  In terms of notation, $\phi$ is merely a label - in other cases we may label ket vectors by a number or collection of numbers.  The space is suffieciently well behaved that for each member $\ket{\psi}$ of the space there is a corresponding dual vector $\bra{\psi}=(\ket{\psi})^*$.  Have sesquilinear inner product $\braket{\sim|\sim}:\mathcal{H}^2\rightarrow\mathbb{C}$ etc.
 \\
 \\
-Physically $\ket{\psi}\mapsto\alpha\ket{\psi}$ transforms the ket to an equivalent state.  For a particle we often choose $\braket{\psi|\psi}=1$, note that we often study systems whioch are idealisations, eg infinite plane waves where $\braket{\psi|\psi}=\infty$.  Even then given $\theta\in\mathbb{R}$ the map $\ket{\psi}\mapsto e^{i\theta}\ket{psi}$ gives equivalent systems, though we find phase differences do matter.
+Physically $\ket{\psi}\mapsto\alpha\ket{\psi}$ transforms the ket to an equivalent state.  For a particle we often choose $\braket{\psi|\psi}=1$, note that we often study systems whioch are idealisations, eg infinite plane waves where $\braket{\psi|\psi}=\infty$.  Even then given $\theta\in\mathbb{R}$ the map $\ket{\psi}\mapsto e^{i\theta}\ket{\psi}$ gives equivalent systems, though we find phase differences do matter.
 \\
 \\
 What with this being a vector space we have linear operators on it.  Given $Q:\mathcal{H}\rightarrow\mathcal{H}$ linear we can define $Q^\dagger:\mathcal{H}^\dagger\rightarrow\mathcal{H}^\dagger$ by $Q^\dagger:\bra{\psi}\mapsto(Q\ket{\psi})^\dagger$.
@@ -125,6 +125,36 @@ Have $[\hat x,\hat p]=i\hbar$ and say $\hat x\ket x=x\ket x$,  Cts spectrum in t
   \\
   Id=\int_\mathbb{R}dx\ket x \bra x
 \end{align*}
-similar for $\hat p$.  May represent a system in terms of either of these representations.  Often write $\psi(x)=\braket{x|\psi}$.
+similar for $\hat p$.  May represent a system in terms of either of these representations.  Often write $\psi(x)=\braket{x|\psi}$.  The commutation relation $[\hat x,\hat p]=i\hbar$ may be used to show some results about the commutator:  It can easily be shown that $[\hat x,\hat p^n]=in\hbar \hat p^{n-1}=\partial_{\hat p}(\hat p^n)$.  For Taylor expandable functions therefore $[\hat x,f(\hat p)]=i\hbar f'(\hat p)$.
+\\
+\\
+Now we consider the translation operator $U_a:\ket x\mapsto\ket{x+a}$ which by homogeneity does not depend on $x$ but may depend on $\hat p$ applied to $x$.  In particular, noting $U_0=Id$, we have that $\forall x$
+\begin{align*}
+  (x+a)\ket{x+a}&=\hat xU_a\ket x=([\hat x,U_a]+xU_a)\ket x=[\hat x,U_a]\ket x+x\ket{x+a}
+  \\
+  \implies& a\ket{x+a}=aU_a\ket x=[\hat x,U_a]\ket x=i\hbar(\partial_{\hat p}U_a)\ket x
+  \\
+  \implies& aU_a=i\hbar(\partial_{\hat p}U_a)
+  \\
+  \implies& U_a=e^{\frac{-ia\hat p}{\hbar}}
+\end{align*}
+Similarly, it can be shown that $\ket{p+b}=e^{\frac{ibx}{\hbar}}\ket{p}$.  Putting these results together we find
+\begin{align*}
+  \braket{x+a|p+b}&=\braket{x|e^{\frac{ia\hat p}{\hbar}|p+b}}
+  &=e^{\frac{ia(p+b)}{\hbar}}\braket{x|e^{\frac{ib\hat x}{\hbar}}|p}
+  &=e^{\frac{i}{\hbar}(ab+ap+bx)}\braket{x|p}
+\end{align*}
+Thus we have $\braket{x|p}=\alpha e^{\frac{ipx}{\hbar}}$ fs $\alpha$ to be determined.  Note that
+\begin{gather*}
+  \mathcal{FT}(\delta_x)=\int_{\mathbb{R}}e^{-i\zeta x}\delta_x=1
+  \\
+  \implies \delta_x=\frac{1}{2\pi}\int_{\mathbb{R}}d\zeta e^{i\zeta x}
+\end{gather*}
+so that given $\braket{x|x'}=\delta_{x-x'}$ we can deduce that
+\begin{gather*}
+  1=\braket{x|x'}=\int_{\mathbb{R}}dp\braket{x|p}\braket{p|x}=|\alpha|^2\int_{\mathbb R}dpe^{\frac{ip(x-x')}{\hbar}}=|\alpha|^2\hbar2\pi\delta_{x-x'}
+  \\
+  \implies \alpha=\frac{1}{\sqrt{2\pi\hbar}}
+\end{gather*}
 
 \end{document}
