@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{graphicx}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{definition}
+
+\title{Linear Analysis}
+\author{George Lee\\Girton College}
+\begin{document}
+\maketitle
+\section{Introduction}
+\section{Normed vector spaces}
+\subsection{Vector spaces}
+Vector things
+\subsection{Normed vector spaces: the definition}
+\begin{definition}
+  A normed vector space $\mathbb V$ is an $\mathbb R$ or $\mathbb C$-vector space along with a norm $\|\sim\|:\mathbb V \rightarrow \mathbb R$ such that
+  \begin{enumerate}
+    \item $\forall v\in\mathbb V :0\leq\|v\|$
+    \item $\forall\lambda\in\mathbb R,v\in\mathbb V:\|\lambda v\|=|\lambda|\|v\|$
+    \item $\forall v,w\in\mathbb V:\|v+w\|\leq\|v\|+\|w\|$
+  \end{enumerate}
+\end{definition}
+\section{The relation with the topology}
+Clear that $\|-\|$ defines a metric via taking the norm of the difference between vectors, and hence a notion of topology.  Thus can use Met+Top etc a load in this course.  Might use $\tau_\mathbb{V}$ to denote the collection of open sets.
+\begin{lemma}
+  Let $(\mathbb V,|-|)$ be a normed vector space.  Then the operations of addition and scalar multiplication are continuous.
+\end{lemma}
+\begin{proof}
+  For $+$: let $U\in\tau_\mathbb V$, want $+^{-1}U\in\mathbb V^2$.  Let $(v_1,v_2)\in +^{-1}U$, ie, $v_1+v_2\in U$.  For some $0\leq\epsilon$ we have $v_1+v_2+\mathcal B(\epsilon)=v_1+\mathcal B(\frac{\epsilon}{2})+v_2+\mathcal B(\frac{\epsilon}{2})\subseteq U$.  This is exactly the image of $(v_1+\mathcal B(\frac{\epsilon}{2}),v_1+\mathcal B(\frac{\epsilon}{2}))\in\tau_{\mathbb V^2}$ under $+$.
+\end{proof}
+\begin{corollary}
+  Let $\mathbb V$ be a normed vector space. transplations and dilations are homeomorphisms.
+\end{corollary}
+\subsection{More abstraction: topological vector spaces}
+\begin{definition}
+  A topological vector space is a vector space $\mathbb V$ together with a topology such that addition and scalar multiplication are continuous, and each singleton set is closed.
+\end{definition}
+\end{document}

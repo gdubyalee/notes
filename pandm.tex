@@ -97,7 +97,7 @@ Say $\mathcal{A}$ an $algebra~on~E$ if
 \begin{proof}
   Will write up later
 \end{proof}
-\subsection{Unhiqueness of measures}
+\subsection{Uniqueness of measures}
 \begin{theorem}
   Uniqueness of extention:srlgxdfkghdfg
 \end{theorem}
@@ -119,7 +119,7 @@ Let $(E,\mathcal E),(F,\mathcal F)$ be measurable spaces.  We say $f:E\rightarro
   \item $(G,\mathcal G)=(\mathbb R,\mathcal B)\implies f$ is a measurable function on $E$
   \item $(G,\mathcal G)=([0,\infty],\mathcal B([0,\infty]))\implies f$ is a non-negative measurable function on $E$
 \end{itemize}
-note neither definitions are more strict than the other.  Now seeing as inverse images preserve union and complementation, to show that a function is measurable it is sufficient to show that the inverse images of a collection of sets generating the $\sigma$-algebra are measurable.  For example in the case where $f$ is a measurable function on $E$ it suffices to show that the collection $\{f^{-1}(-\infty,x]:x\in\mathbb R\}=\{\{f(\omega)\leq x\}:x\in\mathbb R\}\subseteq\mathcal F$.  Note that if the measures are borel and the function is continuous it immediately follows it is measurable.
+note neither definitions are more strict than the other.  Now seeing as inverse images preserve union and complementation, to show that a function is measurable it is sufficient to show that the inverse images of a collection of sets generating the $\sigma$-algebra are measurable.  For example in the case where $f$ is a measurable function on $E$ it suffices to show that the collection $\{f^{-1}(-\infty,x]:x\in\mathbb R\}=\{\{f(\omega)\leq x\}:x\in\mathbb R\}\subseteq\mathcal F$.  Note that if the measures are Borel and the function is continuous it immediately follows it is measurable.
 \\
 \\
 rtdhcyfujnyfgjhcvn
@@ -131,6 +131,24 @@ rtdhcyfujnyfgjhcvn
     \item $x\mapsto1\in\mathbb V$
     \item $(f_n)_\mathbb{N}\in\mathbb V^\mathbb{N}$ with $0\leq f_n \uparrow f\implies f\in\mathbb V$
   \end{itemize}
-  then $\{bounded~measurable~functions\}\subseteq\mathbb V$
+  then $\{bounded~measurable~functions\}\subseteq\mathbb V$.
 \end{theorem}
+\begin{proof}
+  Let $\mathcal D =\{A\in\mathcal E:1_A\in\mathbb V\}$.  Then we have $\mathcal A \subseteq\mathcal D$ a $d$-system $\implies \mathcal D = \mathcal E$.  Thus all finite linear combinations of indicator functions are contained in $\mathbb{V}$, in particular given a nonnegative bounded measurable $f$ the series $(x\mapsto2^{-n}\lfloor2^nf(x)\rfloor)_\mathbb{N}$ is contained in $\mathcal A$ and converges from below to $f$ so $f\in\mathbb V$.  Then for an arbitrary bounded measurable function, decompose into positive and negative components both of which are in $\mathbb V$ to see that $f\in\mathbb V$.
+\end{proof}
+\subsection{Image measures}
+Just like with topologies, you can get induced measures using inverse images!
+\begin{lemma}
+  Let $g:\mathbb R \rightarrow \mathbb R$ nonconstant, right continuous and non-decreasing, and extend to $\pm\infty$ via limits, and write $I=(g(-\infty),g(\infty))$.  Define $f:I\rightarrow\mathbb R$ by $f(x)=inf\{y\in\mathbb R:x\leq g(y)\}$.  Then $f$ is left continuous and non-decreasing.
+\end{lemma}
+\begin{proof}
+  Let $x\in I$ and $J_x=\{y\in\mathbb R:x\leq g(y)\}$.  Have $\emptyset\subset J_x\subset\mathbb R$.  $g$ nondecreasing $\implies J_x=[x',\infty]$ for some $x'$.  $g$ right-continuous means that $y_n\in J_x,y_n\downarrow y \implies y\in J_x$.  Thus we have $J_x=[f(x),\infty)$ and $x\leq g(y)$ exactly when $f(x)\leq y$.  Given $x\leq x'$ have $J_x\supseteq J_{x'}$so that $f(x)\leq f(x')$.  For $x_n\uparrow x$ have $J_x=\bigcup_{\mathbb N}J_{x_n}$ and so $f(x_n)\rightarrow f(x)$.  Thus $f$ is left-continuous and non-decreasing as required.
+\end{proof}
+erkuysrfgsieugfskufgsdfugsdk...
+\subsection{Random variables}
+For $(\Omega,\mathcal F, \mathbb P)$ a probability space, $(E,\mathcal E)$ a measurable space, a measurable $X:\Omega\rightarrow E$ called a random variable in $E$, which is interpreted as a state of a system influenced by chance.  Where $E$ isn't mentioned we assume $E=\mathbb R$.
+blah blah blah
+\subsection{Rademacher functions}
+Blaaaaahhhh
+\subsection{Convergence of measurable functions and Random Variables}
 \end{document}
