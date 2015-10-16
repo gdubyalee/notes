@@ -31,7 +31,7 @@ What with this being a vector space we have linear operators on it.  Given $Q:\m
 \\
 Eigenstates of $Q$ with eigenvalue $\lambda$ of course satisfy the equation $Q\ket{\psi}=\lambda\ket{\psi}$.  Oh, also $[A,B]=AB-BA$ is the commutator.  Neat identities are associated with it.
 \subsection{Observables and measurements}
-Operator $Q$ Adjoint/Hermitian if we have $Q^\dagger=Q$ (THIS DOES NOT MAKE SENSE UNLESS WE'RE LIKE, LOL, Say two maps are the same if for all $\ket{\psi}\ket{\phi}$ we have $\braket{\phi |Q|\psi}=\braket{\phi|Q'|\psi}$).  Can show for $Q$ Hermitian:
+Operator $Q$ Adjoint/Hermitian if we have $Q^\dagger=Q$.  Can show for $Q$ Hermitian:
 \begin{itemize}
   \item $Q\ket{\psi}=\lambda\ket{\psi}\implies\lambda\in\mathbb{R}$
   \item $\lambda \neq \lambda',Q\ket{\psi}=\lambda\ket{\psi},Q\ket{\phi}=\lambda'\ket{\phi}\implies \braket{\psi|\phi}=0$
@@ -46,7 +46,7 @@ $$
 $$
 ie,  we have  that the identity operator $Id=\sum_\lambda\sum_{n=1}^{dim(\mathbb{V}_\lambda)}\ket{n,\lambda}\bra{n,\lambda}$.  This simplifies, for a nondegenerate spetrum, ie, when $\forall\lambda:dim(\mathbb{V}_\lambda)=1$ to
 $$
-  \ket{\psi}=\sum_\lambda\ket{n,\lambda}\braket{\lambda|\psi}=\sum_\lambda\alpha_{\lambda}\ket{\lambda}
+  \ket{\psi}=\sum_\lambda\ket{\lambda}\braket{\lambda|\psi}=\sum_\lambda\alpha_{\lambda}\ket{\lambda}
 $$
 Here $\alpha_X=\braket{X|\psi}$.
 \\
@@ -140,21 +140,49 @@ Now we consider the translation operator $U_a:\ket x\mapsto\ket{x+a}$ which by h
 \end{align*}
 Similarly, it can be shown that $\ket{p+b}=e^{\frac{ibx}{\hbar}}\ket{p}$.  Putting these results together we find
 \begin{align*}
-  \braket{x+a|p+b}&=\braket{x|e^{\frac{ia\hat p}{\hbar}|p+b}}
+  \braket{x+a|p+b}&=\braket{x|e^{\frac{ia\hat p}{\hbar}}|p+b}
   &=e^{\frac{ia(p+b)}{\hbar}}\braket{x|e^{\frac{ib\hat x}{\hbar}}|p}
   &=e^{\frac{i}{\hbar}(ab+ap+bx)}\braket{x|p}
 \end{align*}
 Thus we have $\braket{x|p}=\alpha e^{\frac{ipx}{\hbar}}$ fs $\alpha$ to be determined.  Note that
 \begin{gather*}
-  \mathcal{FT}(\delta_x)=\int_{\mathbb{R}}e^{-i\zeta x}\delta_x=1
+  \mathcal{FT}(\delta_x)=\int_{\mathbb{R}}dxe^{-i\xi x}\delta_x=1
   \\
-  \implies \delta_x=\frac{1}{2\pi}\int_{\mathbb{R}}d\zeta e^{i\zeta x}
+  \implies \delta_x=\frac{1}{2\pi}\int_{\mathbb{R}}d\xi e^{i\xi x}
 \end{gather*}
 so that given $\braket{x|x'}=\delta_{x-x'}$ we can deduce that
 \begin{gather*}
-  1=\braket{x|x'}=\int_{\mathbb{R}}dp\braket{x|p}\braket{p|x}=|\alpha|^2\int_{\mathbb R}dpe^{\frac{ip(x-x')}{\hbar}}=|\alpha|^2\hbar2\pi\delta_{x-x'}
+  \delta_{x-x'}=\braket{x|x'}=\int_{\mathbb{R}}dp\braket{x|p}\braket{p|x}=|\alpha|^2\int_{\mathbb R}dpe^{\frac{ip(x-x')}{\hbar}}=|\alpha|^2\hbar2\pi\delta_{x-x'}
   \\
   \implies \alpha=\frac{1}{\sqrt{2\pi\hbar}}
 \end{gather*}
+and so we have derived the result that $\braket{x|p}=\frac{!}{\sqrt{2\pi\hbar}}e^{\frac{ipx}{\hbar}}$.
+\subsection{Simultaneous Measurements asnd Complete Commuting Sets}
+sergtshsfg
+\section{The Harmonic Oscillator}
+For a 1 dimensional Harmonic Oscillator with mass $m$ and frequency $\omega$ we have the Hamiltonian
+
+\begin{gather*}
+  \hat{\mathcal H}=\frac{1}{2m}(\hat p^2+m^2\omega^2\hat x^2).
+\end{gather*}
+\subsection{Analysis with annihilation, creation, number operators}
+
+Define
+\begin{gather*}
+  \hat a=\sqrt{\frac{m\omega}{2\hbar}}(\hat x+\frac{i\hat p}{m\omega})
+  \\
+  \hat a^\dagger=\sqrt{\frac{m\omega}{2\hbar}}(\hat x-\frac{i\hat p}{m\omega})
+\end{gather*}
+We find then that $[\hat x,\hat p]=i\hbar \implies [\hat a,\hat a^\dagger]=1$.  Also, we find setting $\hat N=\hat a^\dagger\hat a$ that
+\begin{gather*}
+  \hat{\mathcal H}=\hbar\omega(\hat N+\frac{1}{2}).
+\end{gather*}
+Thus $\hat N$ and $\hat{\mathcal H}$ are simultaneously diagonalisable.  Further, given a normalised eigenstate $\hat N\ket\lambda=\lambda\ket \lambda$ we have $\lambda=\braket{\lambda|\hat N|\lambda}=\|a\ket\lambda\|^2\geq 0$.  Also we find that $\hat N\hat a^\dagger\ket\lambda=([\hat N,\hat a^\dagger]+\hat a^\dagger\hat N)\ket\lambda=(\lambda+1)\hat a^\dagger\ket\lambda$, and similarly $\hat N\hat a\ket\lambda=(\lambda-1)\hat a\ket\lambda$.
+\\
+\\
+Fuss about normalising, also rather neatly observe that evalues of $\hat N$ are integers else can get arbitrarily negative evals by decrementing ctsly.
+\subsection{Importance of the oscilator - applications in outline}
+agsdfgsdfgsdfgdfg
+\section{Pictures and Operators}
 
 \end{document}
